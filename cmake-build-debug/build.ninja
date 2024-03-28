@@ -61,6 +61,12 @@ build CMakeFiles/Cdataframe.dir/fonctions.c.obj: C_COMPILER__Cdataframe_unscanne
   OBJECT_DIR = CMakeFiles\Cdataframe.dir
   OBJECT_FILE_DIR = CMakeFiles\Cdataframe.dir
 
+build CMakeFiles/Cdataframe.dir/nathan_test.c.obj: C_COMPILER__Cdataframe_unscanned_Debug C$:/Users/natha/Cdataframe/nathan_test.c || cmake_object_order_depends_target_Cdataframe
+  DEP_FILE = CMakeFiles\Cdataframe.dir\nathan_test.c.obj.d
+  FLAGS = -g -std=gnu11 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\Cdataframe.dir
+  OBJECT_FILE_DIR = CMakeFiles\Cdataframe.dir
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target Cdataframe
@@ -69,7 +75,7 @@ build CMakeFiles/Cdataframe.dir/fonctions.c.obj: C_COMPILER__Cdataframe_unscanne
 #############################################
 # Link the executable Cdataframe.exe
 
-build Cdataframe.exe: C_EXECUTABLE_LINKER__Cdataframe_Debug CMakeFiles/Cdataframe.dir/main.c.obj CMakeFiles/Cdataframe.dir/fonctions.c.obj
+build Cdataframe.exe: C_EXECUTABLE_LINKER__Cdataframe_Debug CMakeFiles/Cdataframe.dir/main.c.obj CMakeFiles/Cdataframe.dir/fonctions.c.obj CMakeFiles/Cdataframe.dir/nathan_test.c.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\Cdataframe.dir
