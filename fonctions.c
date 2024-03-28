@@ -10,3 +10,12 @@ COLUMN *create_column(char* title){
     return x;
 }
 
+int insert_value( COLUMN * mycol, int val ) {
+    if (mycol->taille_physique <= mycol->taille_logique) {
+        mycol->donnees = realloc(mycol->donnees, sizeof(int)*REALOC_SIZE + mycol->taille_physique);
+        mycol->taille_physique += REALOC_SIZE;
+    }
+    *(mycol->donnees + mycol->taille_logique) = val;
+    mycol->taille_logique+=1;
+    return 1;
+}

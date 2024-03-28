@@ -12,5 +12,6 @@ typedef struct{
 }COLUMN;
 
 COLUMN *create_column(char* title);
+int insert_value( COLUMN * mycol, int val );
 
 #endif
