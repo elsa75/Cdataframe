@@ -1,6 +1,10 @@
-#include <stdio.h>
 #include "fonctions.h"
 
 int main() {
-    return 0;
+    COLUMN *mycol = create_column("My column");
+    insert_value(mycol, 52);
+    insert_value(mycol, 44);
+    insert_value(mycol, 15);
+    print_col(mycol);
+
 }
