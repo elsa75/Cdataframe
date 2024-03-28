@@ -6,4 +6,5 @@ set(CMAKE_C_STANDARD 11)
 add_executable(Cdataframe main.c
         fonctions.c
         fonctions.h
-        nathan_test.c)
+        nathan_test.c
+)
