@@ -1,10 +1,12 @@
 #include "fonctions.h"
 
-int main() {
-    COLUMN *mycol = create_column("My column");
-    insert_value(mycol, 52);
-    insert_value(mycol, 44);
-    insert_value(mycol, 15);
-    print_col(mycol);
 
+int main() {
+    COLUMN ** Cdata = create_CDataframe();
+    Cdata = saisie_dur_CDataframe(Cdata);
+    delete_column(*Cdata);
+    print_CDataframe(Cdata, 2);
+    printf("d");
+    return 0;
 }
+
