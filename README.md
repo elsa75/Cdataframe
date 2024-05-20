@@ -1,8 +1,19 @@
 lien github : https://github.com/elsa75/Cdataframe.git
+Parcours choisi : Colonnes du tout type de données
+                  Cdataframe est une liste doublement chainée
+                  Fonctionnalités basique car manque de temps malheureusment
 
-Pour ce projet nous souhaitons réussir à finir toutes les étapes, pour cela nous nous sommes réparti les tâches de façon à avancer rapidement, Elsa ce charge de la première partie et de mon côté,
-Nathan, essaye d'avancer sur la deuxième partie qui est d'avoir des colonnes de différent type, ce qui plutôt compliqué pour l'instant si l'on s'aide du cours de l'EFREI. De ce qui est de la première partie, elle reste relativement facile par rapport à nos connaissance actuel.
-On a essayé de faire au plus simple, et nous n'avions pas fait de structure pour le Cdataframe, mais nous allons vite changer cela, lorsqu'on aura fini les colonnes de plusieurs types.
-Au futur on souhaite faire une structure de liste doublement chainé mais on verra selon notre avancement sur le projet.
+Pour l'utilisation du code il suffit le lancer le code, il y a le menu, pas d'autre instruction nécessaires
 
+Les fonctions les plus importante sont :
+CDATAFRAME *create_cdataframe(ENUM_TYPE *cdftype, int size);   -> Crée le cdataframe vide
+void delete_cdataframe(CDATAFRAME **cdf);                      -> Supprime le cdaframe
+void delete_column_cdf(CDATAFRAME *cdf, char *col_name);       -> Supprime une colonne
+void print_cdataframe(CDATAFRAME * cdf);                       -> Affiche le Cdataframe
+CDATAFRAME * create_cdataframe_saisi();                        -> Crée le Cdataframe en dur
+void ajout_col_cdf(CDATAFRAME * cdf, COLUMN* col);             -> Ajoute une colonne
+void changer_nom_col(CDATAFRAME * cdf, char * col_name);       -> Change le nom des colonnes
+int* accecder_val(CDATAFRAME * cdf, void * x, ENUM_TYPE type); ->Renvoie les coordonée d'une valeur
+void afficehr_nom(CDATAFRAME * cdf);                           -> Affiche le nom des colonnes  
 
+Pour le reste les fonctions tout est expliqué plus précisement dans le code directement
