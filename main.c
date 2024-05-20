@@ -13,7 +13,7 @@ int main(){
         int type = 0;
         int nb = 0;
         void * x=NULL;
-        int verif = 0;
+        int verif;
         printf("\nMenu Principal:\n");
         printf("-------------------------------------------------\n");
         printf("  [1] Créer un CDataFrame vide\n");
