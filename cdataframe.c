@@ -1,11 +1,23 @@
+/** PROJET C : Un Cdataframe
+ * Gazin Nathan Elsa Djafar
+ * cdataframe.c est utilisé pour s'occupper du Cdataframe sous tout les angles**/
+
 #include "cdataframe.h"
 
-
+/**
+ * cree un CDataframe vide,
+ * Prend en paramètre :
+ * cdftype : un tabelau d'ENUM_TYPE afin de connaitre le type de chaque colonne crée
+ * size : le nombre de colonne
+ * Renvoie un pointeur sur le Cdataframe crée
+ * **/
 CDATAFRAME *create_cdataframe(ENUM_TYPE *cdftype, int size){
     int taille = 10;
     char * col_name = (char*)malloc(sizeof(char)*taille);
 
     CDATAFRAME * cdf = lst_create_list();
+
+    /** Crée le premier maillon séparement du reste**/
 
     lnode *ptmp = (lnode *) malloc(sizeof(lnode));
     cdf->head = ptmp;
@@ -16,6 +28,8 @@ CDATAFRAME *create_cdataframe(ENUM_TYPE *cdftype, int size){
     ptmp->prev = NULL;
     lnode * tmp = cdf->head;
     lnode * tm = cdf->head;
+
+    /** Crée si il y en a le reste les maillons a la suite du premier **/
 
     for (int i=1;i<size;i++){
         tmp->next = (lnode *) malloc(sizeof(lnode));
@@ -38,12 +52,27 @@ CDATAFRAME *create_cdataframe(ENUM_TYPE *cdftype, int size){
     return cdf;
 }
 
+/**
+ * Supprime un Cdataframe,
+ * Prend en paramètre :
+ * Un double pointeur sur un Cdataframe
+ * Ne renvoie rien car supprimé
+ * **/
 void delete_cdataframe(CDATAFRAME **cdf){
+    /** Appel une fonction qui supprime une liste**/
     lst_delete_list((list*)*cdf);
     *cdf=NULL;
 }
 
+/**
+ * Supprime une colonne d'un Cdataframe,
+ * Prend en paramètre :
+ * Un  pointeur sur un Cdataframe
+ * Le nom de la colonne a supprimer
+ * Ne renvoie rien
+ * **/
 void delete_column_cdf(CDATAFRAME *cdf, char *col_name){
+    /** Cherche la colonne grace à son nom puis la supprime grâce a une autre fonction **/
     lnode *tmp = cdf->head;
     COLUMN *col;
     while(tmp != NULL){
@@ -58,7 +87,14 @@ void delete_column_cdf(CDATAFRAME *cdf, char *col_name){
     }
 }
 
+/**
+ * Compte le nombre de colonne d'un Cdataframe,
+ * Prend en paramètre :
+ * Un  pointeur sur un Cdataframe
+ * Renvoie un int -> le nombre de colonne
+ * **/
 int get_cdataframe_cols_size(CDATAFRAME *cdf){
+    /** Parcours le Cdataframe en comptant dans nb**/
     lnode * tmp = cdf->head;
     int nb=0;
     while (tmp!=NULL) {
@@ -68,11 +104,19 @@ int get_cdataframe_cols_size(CDATAFRAME *cdf){
     return nb;
 }
 
+/**
+ * Affiche un Cdataframe,
+ * Prend en paramètre :
+ * Un  pointeur sur un Cdataframe
+ * Ne renvoie rien car affiché
+ * **/
 void print_cdataframe(CDATAFRAME * cdf){
+    /** Vérifie le Cdataframe non nul**/
     if (cdf==NULL || cdf->head==NULL){
         printf("Cdataframe vide\n");
         return ;
     }
+    /** Affiche le nom des colonnes**/
     lnode * tmp;
     tmp = cdf->head;
     int i=0;
@@ -81,6 +125,7 @@ void print_cdataframe(CDATAFRAME * cdf){
         printf("| %s |\t", col->title);
         tmp = tmp->next;
     }
+    /** Affiche ligne par ligne le reste du Cdataframe**/
     printf("\n");
     tmp = cdf->head;
     while(i< ((COLUMN*)(tmp->data))->size){
@@ -100,18 +145,28 @@ void print_cdataframe(CDATAFRAME * cdf){
     }
 }
 
+/**
+ * Affiche un Cdataframe à partir d'une certaine colonne,
+ * Prend en paramètre :
+ * Un  pointeur sur un Cdataframe
+ * Un int qui correspond où commencé à afficher
+ * Ne renvoie rien car affiché
+ * **/
 void printf_col_partir_x(CDATAFRAME * cdf, int x){
+    /** Vérifie le Cdataframe non nul**/
     int lig=0;
     if (cdf==NULL || cdf->head==NULL){
         printf("Cdataframe vide\n");
         return ;
     }
+    /** Parcours le Cdatafarme jusqu'a au bon nombre**/
     lnode * tmp;
     tmp = cdf->head;
     while (tmp!=NULL && lig < x){
         lig++;
         tmp = tmp->next;
     }
+    /** Parcours le reste du Cdataframe en l'affichan**/
     while (tmp!=NULL && lig >= x){
         print_col(tmp->data);
         lig++;
@@ -119,11 +174,20 @@ void printf_col_partir_x(CDATAFRAME * cdf, int x){
     }
 }
 
+/**
+ * Affiche un Cdataframe à partir d'une cerntaine ligne,
+ * Prend en paramètre :
+ * Un  pointeur sur un Cdataframe
+ * Un int qui correspond où commencé à afficher
+ * Ne renvoie rien car affiché
+ * **/
 void printf_ligne_partir_x(CDATAFRAME * cdf, int x) {
+    /** Vérifie le Cdataframe non nul**/
     if (cdf == NULL || cdf->head == NULL) {
         printf("Cdataframe vide\n");
         return;
     }
+    /** Affiche tous le Cdataframe en sautant les x première ligne**/
     lnode *tmp;
     tmp = cdf->head;
     COLUMN *col;
@@ -141,11 +205,19 @@ void printf_ligne_partir_x(CDATAFRAME * cdf, int x) {
     }
 }
 
+/**
+ * Ajoute une ligne a chaque colonne du Cdataframe,
+ * Prend en paramètre :
+ * Un  pointeur sur un Cdataframe
+ * Ne renvoie rien car ajouté
+ * **/
 void ajouter_ligne_cdf(CDATAFRAME * cdf){
+    /** Vérifie le Cdataframe non nul**/
     if (cdf==NULL || cdf->head==NULL){
         printf("Cdataframe vide\n");
         return ;
     }
+    /** Ajoute un valeur choisie par l'utilsateur selon le type de chaque colonne**/
     lnode * tmp;
     tmp = cdf->head;
     while (tmp!=NULL){
@@ -221,7 +293,14 @@ void ajouter_ligne_cdf(CDATAFRAME * cdf){
     }
 }
 
+/**
+ * Crée un Cdataframe en dur,
+ * Prend en paramètre :
+ * Rien
+ * Renvoie un pointeur sur le Cdataframe crée
+ * **/
 CDATAFRAME * create_cdataframe_dur(){
+    /**Crée le Cdataframe a la main du codeur **/
     char * tab[3] = {"a","b", "c"};
     ENUM_TYPE cdftype [3] = {3,4,6};
     int taille = 10;
@@ -266,7 +345,14 @@ CDATAFRAME * create_cdataframe_dur(){
     return cdf;
 }
 
+/**
+ * Crée un Cdataframe selon l'utilisateur,
+ * Prend en paramètre :
+ * Rien
+ * Renvoie un pointeur sur le Cdataframe crée
+ * **/
 CDATAFRAME * create_cdataframe_saisi(){
+    /** Crée le Cdataframe avec les colonnes**/
     int size;
     printf("Saisir le nombre de colonne de votre CDATAFRAME : ");
     scanf(" %d", &size);
@@ -280,6 +366,7 @@ CDATAFRAME * create_cdataframe_saisi(){
     }
     CDATAFRAME *cdf = create_cdataframe(tab, size);
     printf("----------------------------\n");
+    /** Remplie chaque colonne du Cdataframe**/
     int nb;
     lnode *tmp = cdf->head;
     for (int k = 0; k < size; k++) {
@@ -336,12 +423,28 @@ CDATAFRAME * create_cdataframe_saisi(){
     return cdf;
 }
 
+/**
+ * Ajoute une colonne au Cdataframe,
+ * Prend en paramètre :
+ * Un  pointeur sur un Cdataframe
+ * Un pointeur sur la colonne a ajouter
+ * Ne renvoie rien car ajouté
+ * **/
 void ajout_col_cdf(CDATAFRAME * cdf, COLUMN *col) {
+    /**Rien a rajouter **/
     lnode * tmp = lst_create_lnode(col);
     lst_insert_tail((list *)cdf, tmp);
 }
 
+/**
+ * Change le nom d'une colonne d'un Cdataframe,
+ * Prend en paramètre :
+ * Un  pointeur sur un Cdataframe
+ * Le nom de la colonne à changer
+ * Ne renvoie rien car changé
+ * **/
 void changer_nom_col(CDATAFRAME * cdf, char * col_name){
+    /** Parcours le Cdataframe jusqu'a trouver équivalence de nom puis demande le nouveau**/
     lnode *tmp = cdf->head;
     COLUMN *col;
     while(tmp != NULL){
@@ -359,11 +462,21 @@ void changer_nom_col(CDATAFRAME * cdf, char * col_name){
     }
 }
 
+/**
+ * Cherche un valeur dans un Cdataframe ,
+ * Prend en paramètre :
+ * Un  pointeur sur un Cdataframe
+ * Un pointeur sur une valeur
+ * Un ENUM_TYPE du type de la valeur
+ * Renvoie 1 si la valeur existe dans le Cdataframe sinon 0
+ * **/
 int cherche_valeur(CDATAFRAME * cdf, void * x, ENUM_TYPE type){
+    /** Vérifie le Cdataframe non nul **/
     if (cdf==NULL || cdf->head==NULL){
         printf("Cdataframe vide\n");
         return 0;
     }
+    /** Parcours chaque colonne du Cdataframe et si du même type de valeur chercher alors scan chaqu'une de ces valeur**/
     lnode * tmp;
     tmp = cdf->head;
     while (tmp!=NULL){
@@ -413,11 +526,21 @@ int cherche_valeur(CDATAFRAME * cdf, void * x, ENUM_TYPE type){
     return 0;
 }
 
+/**
+ * Recheche l'emplacement d'un valeur dans un Cdataframe,
+ * Prend en paramètre :
+ * Un  pointeur sur un Cdataframe
+ * Un pointeur sur une valeur
+ * Un ENUM_TYPE du type de la valeur
+ * Renvoie un tableau int avec en indice 0 la ligne et en indice 1 la colonne de la valeur cherché sinon il y a que des -1 dans le tableau
+ * **/
 int* accecder_val(CDATAFRAME * cdf, void * x, ENUM_TYPE type){
+    /** Vérifie le Cdataframe non nul**/
     if (cdf==NULL || cdf->head==NULL){
         printf("Cdataframe vide\n");
         return 0;
     }
+    /** Cherche une colonne du même type de la valeur puis si trouvé insert sa position dans tab**/
     int * tab = (int*) malloc(sizeof(int)*2);
     tab[0]=-1;
     tab[1]=-1;
@@ -490,11 +613,19 @@ int* accecder_val(CDATAFRAME * cdf, void * x, ENUM_TYPE type){
     return NULL;
 }
 
+/**
+ * Affiche les nom des colonne d'un Cdataframe,
+ * Prend en paramètre :
+ * Un  pointeur sur un Cdataframe
+ * Ne renvoie rien car affiché
+ * **/
 void afficehr_nom(CDATAFRAME * cdf){
+    /** Vérifie le Cdataframe non nul**/
     if (cdf==NULL || cdf->head==NULL){
         printf("Cdataframe vide\n");
         return ;
     }
+    /** Parcours tous le Cdataframe et affiche le nom de chaque colonne**/
     lnode * tmp;
     tmp = cdf->head;
     int i=0;

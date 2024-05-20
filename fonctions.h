@@ -35,13 +35,64 @@ struct column {
 
 typedef struct column COLUMN;
 
+/**
+ * Crée un colonne vide,
+ * Prend en paramètre :
+ * Un ENUM_TYPE le type de la colonne
+ * Un string pour le nom de la colonne
+ * Renvoie un pointeur sur la colonne
+ * **/
 COLUMN * create_column(ENUM_TYPE type, char *title);
+
+/**
+ * Ajoute une valeur à la colonne,
+ * Prend en paramètre :
+ * Un  pointeur sur une colonne
+ * Un pointeur sur la valeur à ajouter
+ * Renvoie 1 si l'ajout réussi sinon 0
+ * **/
 int insert_value(COLUMN *col, void *value);
+
+/**
+ * Supprime une colonne,
+ * Prend en paramètre :
+ * Un double pointeur sur une colonne
+ * Ne renvoi rien car supprimé
+ * **/
 void delete_column(COLUMN **col);
+
+/**
+ * Convetie n'importe quelle type en chaine de caratère,
+ * Prend en paramètre :
+ * Un  pointeur sur une colonne
+ * Un indice sur l'élément à converir
+ * Un string qui sera l'élément convertie
+ * Un int pour la taille max du string après conversion
+ * Ne renvoie rien car ajouté
+ * **/
 void convert_value(COLUMN *col, unsigned long long int i, char * str, int size);
+
+/**
+ * Convetie n'importe quelle type de structure en chaine de caratère,
+ * Prend en paramètre :
+ * Un pointeur sur une structure
+ * Renvoie un string
+ * **/
 char * convert_struc(void * structure);
+
+/**
+ * Affiche une colonne,
+ * Prend en paramètre :
+ * Un pointeur sur une colonne
+ * Ne renvoie rine car affiché
+ * **/
 void print_col(COLUMN* col);
-void print_str(char * str);
+
+/**
+ * Permet de saisir une colonne selon d'utilisateur,
+ * * Prend en paramètre :
+ * Renvoie un poit=nteur sur la colonne
+ * **/
 COLUMN * create_column_saisie();
 
 #endif

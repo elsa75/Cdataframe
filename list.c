@@ -1,3 +1,7 @@
+/** PROJET C : Un Cdataframe
+ * Gazin Nathan
+ * List.c est utilisé pour faciliter l'utilisation de la liste chainé pour le Cdrataframe**/
+
 #include "list.h"
 #include <stdlib.h>
 

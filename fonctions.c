@@ -1,3 +1,7 @@
+/** PROJET C : Un Cdataframe
+ * Gazin Nathan Elsa Djafar
+ * fonction.c est utilisé pour gerer les colonnes hors Cdataframe**/
+
 #include "fonctions.h"
 
 COLUMN * create_column(ENUM_TYPE type, char *title){
