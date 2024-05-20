@@ -76,10 +76,22 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="C:/Users/natha/Cdataframe/cdataframe.c">
+			<Option target="Cdataframe"/>
+		</Unit>
+		<Unit filename="C:/Users/natha/Cdataframe/cdataframe.h">
+			<Option target="Cdataframe"/>
+		</Unit>
 		<Unit filename="C:/Users/natha/Cdataframe/fonctions.c">
 			<Option target="Cdataframe"/>
 		</Unit>
 		<Unit filename="C:/Users/natha/Cdataframe/fonctions.h">
+			<Option target="Cdataframe"/>
+		</Unit>
+		<Unit filename="C:/Users/natha/Cdataframe/list.c">
+			<Option target="Cdataframe"/>
+		</Unit>
+		<Unit filename="C:/Users/natha/Cdataframe/list.h">
 			<Option target="Cdataframe"/>
 		</Unit>
 		<Unit filename="C:/Users/natha/Cdataframe/main.c">

@@ -128,6 +128,30 @@ Cdataframe/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Cdataframe.dir\build.make CMakeFiles/Cdataframe.dir/build
 .PHONY : Cdataframe/fast
 
+cdataframe.obj: cdataframe.c.obj
+.PHONY : cdataframe.obj
+
+# target to build an object file
+cdataframe.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Cdataframe.dir\build.make CMakeFiles/Cdataframe.dir/cdataframe.c.obj
+.PHONY : cdataframe.c.obj
+
+cdataframe.i: cdataframe.c.i
+.PHONY : cdataframe.i
+
+# target to preprocess a source file
+cdataframe.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Cdataframe.dir\build.make CMakeFiles/Cdataframe.dir/cdataframe.c.i
+.PHONY : cdataframe.c.i
+
+cdataframe.s: cdataframe.c.s
+.PHONY : cdataframe.s
+
+# target to generate assembly for a file
+cdataframe.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Cdataframe.dir\build.make CMakeFiles/Cdataframe.dir/cdataframe.c.s
+.PHONY : cdataframe.c.s
+
 fonctions.obj: fonctions.c.obj
 .PHONY : fonctions.obj
 
@@ -151,6 +175,30 @@ fonctions.s: fonctions.c.s
 fonctions.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Cdataframe.dir\build.make CMakeFiles/Cdataframe.dir/fonctions.c.s
 .PHONY : fonctions.c.s
+
+list.obj: list.c.obj
+.PHONY : list.obj
+
+# target to build an object file
+list.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Cdataframe.dir\build.make CMakeFiles/Cdataframe.dir/list.c.obj
+.PHONY : list.c.obj
+
+list.i: list.c.i
+.PHONY : list.i
+
+# target to preprocess a source file
+list.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Cdataframe.dir\build.make CMakeFiles/Cdataframe.dir/list.c.i
+.PHONY : list.c.i
+
+list.s: list.c.s
+.PHONY : list.s
+
+# target to generate assembly for a file
+list.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Cdataframe.dir\build.make CMakeFiles/Cdataframe.dir/list.c.s
+.PHONY : list.c.s
 
 main.obj: main.c.obj
 .PHONY : main.obj
@@ -209,9 +257,15 @@ help:
 	@echo ... edit_cache
 	@echo ... rebuild_cache
 	@echo ... Cdataframe
+	@echo ... cdataframe.obj
+	@echo ... cdataframe.i
+	@echo ... cdataframe.s
 	@echo ... fonctions.obj
 	@echo ... fonctions.i
 	@echo ... fonctions.s
+	@echo ... list.obj
+	@echo ... list.i
+	@echo ... list.s
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s

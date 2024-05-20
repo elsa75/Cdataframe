@@ -7,4 +7,8 @@ add_executable(Cdataframe main.c
         fonctions.c
         fonctions.h
         nathan_test.c
+        list.c
+        list.h
+        cdataframe.c
+        cdataframe.h
 )
