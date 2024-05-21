@@ -36,43 +36,36 @@ int insert_value(COLUMN *col, void *value){
 
     switch(col->column_type){
         case UINT:
-            /***if (col->size == 0){(col->data) = (unsigned int **)malloc(col->max_size*sizeof(unsigned int*));}***/
             col->data[col->size] = (COL_TYPE *) malloc (sizeof(unsigned int));
             *((unsigned int*)col->data[col->size])= *((unsigned int*)value);
             break;
 
         case INT:
-            /***if (col->size == 0){col->data = (signed int **)malloc((col->max_size)*sizeof(signed int*));}***/
             col->data[col->size] = (COL_TYPE*) malloc (sizeof(signed int));
             *((signed int*)col->data[col->size])= *((signed int *)value);
             break;
 
         case CHAR:
-            /***if (col->size == 0){(col->data) = (char **)malloc(col->max_size*sizeof(char*));}***/
             col->data[col->size] = (COL_TYPE*) malloc (sizeof(char));
             *((char*)col->data[col->size])= *((char*)value);
             break;
 
         case FLOAT:
-            /***if (col->size == 0){(col->data) = (float **)malloc(col->max_size*sizeof(float*));}***/
             col->data[col->size] = (COL_TYPE*) malloc (sizeof(float));
             *((float*)col->data[col->size])= *((float*)value);
             break;
 
         case DOUBLE:
-            /***if (col->size == 0){(col->data) = (double **)malloc(col->max_size*sizeof(double*));}***/
             col->data[col->size] = (COL_TYPE*) malloc (sizeof(double));
             *((double*)col->data[col->size])= *((double*)value);
             break;
 
         case STRING:
-            /***if (col->size == 0){(col->data) = (char **)malloc(col->max_size*sizeof(char*));}***/
             col->data[col->size] = (COL_TYPE*) malloc (sizeof(char*));
             *((char**)col->data[col->size])= *((char**)value);
             break;
 
         case STRUCTURE:
-            /***if (col->size == 0){(col->data) = (void **)malloc(col->max_size*sizeof(void*));}***/
             col->data[col->size] = (COL_TYPE*) malloc (sizeof(void*));
             *((void**)col->data[col->size])= *((void**)value);
             break;
