@@ -1,3 +1,7 @@
+/** PROJET C : Un Cdataframe
+ * Gazin Nathan
+ * main.c est utilisé pour coder le menu et lancer le programme**/
+
 #include "fonctions.h"
 #include "cdataframe.h"
 
